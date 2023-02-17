@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio: 02></title>
+</head>
+<body>
+    <h1>Eejercicio: 02</h1>
+    <h2>Abre la consola de JavaScript para ver el resultado</h2>
+
+    <script>
+        // Pedir dos números y decir cual es el mayor
+        /*
+            FASE 1 => obtener los numeros
+            1.- introducir por teclado un numero => OK
+            2.- compruebo que el numero introducido es correcto => OK
+            3.- introducir el segundo numero => OK
+            4.- comprobar que el numero es correcto => OK
+            
+            FASE 2 => realizar el ejercicio
+            5.- tengo que decir si el numero 1 es mayor que el numero 2 o tengo que decir que el numero 2 es mayor que el numero 1
+        */
+
+        // le muestro al usuario una ventana para introducir un número
+        let numero_1 = window.prompt("Introduce el primer número");
+
+        // compruebo que el numero introducido es el que yo he escrito
+        console.log(numero_1);
+
+        // repito los pasos anteriores
+        let numero_2 = window.prompt("Introduce el segundo número");
+        console.log(numero_2);
+
+        // compruebo si el numero 1 es mayor que el numero 2
+        if (numero_1 > numero_2) {
+            console.log(`${numero_1} es mayor que ${numero_2}`)
+        } else {
+            console.log(`${numero_1} es menor que ${numero_2}`)
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo 2</title>
+</head>
+<body>
+    <h1>Abre la consola y pulsa F5 para ver el resultado</h1>
+    <p>
+        Este ejemplo simula una promesa que se resuelve o falla
+    </p>
+
+    <script>
+        let desarrollo = new Promise((resolve, reject) => {
+            /*
+                Esta función de flecha en la que me encuentro ahora mismo
+                se llama "función ejecutora" es la encargada de realizar
+                todo el proceso interno de la promesa. Los parámetros que tiene
+                "resolve" y "reject" se llaman interceptores
+            */
+            
+            setTimeout(() => {
+                const proyecto  = "📦"
+                const aleatorio = Math.random();
+
+                if(aleatorio < 0.4) {
+                    resolve(proyecto); // una vez resulta la promesa ya no puedo añadir mas código debajo de ese resolve
+                    // resolve es el equivante al "return" en las funciones
+                } else {
+                    reject("📆 no entregado a tiempo")
+                }
+            }, 2000);
+        })
+
+        // ¿como puedo ver el resultado de una promesa?
+        //console.log(desarrollo) // respuesta: Promise {<Pending...>}
+
+        // tenemos que utilizar algunas funciones especiales
+        // desarrollo
+        //     .then((proyecto) => {
+        //         console.log(proyecto)
+        //     })
+        //     .catch((error) => {
+        //         console.log(error)
+        //     })
+        //     .finally(() => console.log("promesa finalizada"))
+        // ;
+    </script>
+</body>
+</html>

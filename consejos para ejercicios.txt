@@ -1,0 +1,16 @@
+Hola Petro.
+
+Te dejo algunos consejos para realizar los ejercicios de ahora y en el futuro para tus proyectos tanto personales como de empresas.
+
+1.- Recuerda que el 99% de la programación se hace en un folio, pizzara, libreta, etc...
+2.- Analiza el problema que tienes que resolver.
+
+Por ejemplo:
+
+Imágina que estás en una empresa y tines que desarrollar un módulo de contabilidad y tu nunca has estudiado contabilidad. Sientate con ese cliente, o esa persona y en un folio escribe todo el proceso que necesitas para realizar esa tarea. Operaciones matemáticas, si tienes que seleccionar algun impuesto, etc...
+
+3.- Cuando tengas resuelto el paso 2 entonces escribe todos los pasos necesarios para realizar el programa. Intenta ser lo mas completo posible, añade explicaciones, como si fuese la receta de un plato de cocina.
+
+4.- Por último ve haciendo y comprobando poco a poco todos los pasos que te has añadido en el paso 3.
+
+5.- No te olvides de ir comentando tu código y de ir comentando las cosas que haces, eso es muy importante para ayudarte en el futuro y recordar que estabas haciendo.

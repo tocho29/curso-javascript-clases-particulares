@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo 2</title>
+</head>
+<body>
+    <h1>Abre la consola y pulsa F5 para ver el resultado</h1>
+    <p>
+        Este ejemplo simula una llamada ajax resulta gracias a async/await
+    </p>
+
+    <script>
+        const getPokemon = () => {
+            const requestOptions = {
+                method: 'GET',
+                redirect: 'follow'
+            };
+
+            return fetch("https://pokeapi.co/api/v2/pokemon/charizard", requestOptions)
+                .then(response => response.json())
+                .then(result => result)
+                .catch(error => console.log('error', error))
+            ;
+        }
+
+        const showPokemon = async () => {
+            const pokemon   = await getPokemon();
+            const pokemon1  = await getPokemon();
+            const pokemon2  = await getPokemon();
+            const pokemon3  = await getPokemon();
+
+            console.log(pokemon)
+            console.log(pokemon1)
+            console.log(pokemon2)
+            console.log(pokemon3)
+        }
+
+        showPokemon();
+    </script>
+</body>
+</html>

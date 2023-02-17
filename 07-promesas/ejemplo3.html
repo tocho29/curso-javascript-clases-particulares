@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo 3</title>
+</head>
+<body>
+    <h1>Abre la consola y pulsa F5 para ver el resultado</h1>
+    <p>
+        El ejemplo 1 pero ahora realizado con promesas
+    </p>
+
+    <script>
+        let compras = "🛒";
+
+        const hacerLaCompra = () => {
+            return new Promise((resolve, reject)=> {
+                setTimeout(() => {
+                    compras += "📦"
+                    console.log(compras)
+                    resolve()
+                }, 2000);
+            })
+        }
+
+        hacerLaCompra()
+            .then(() => hacerLaCompra())
+            .then(() => hacerLaCompra())
+            .then(() => hacerLaCompra())
+            .then(() => hacerLaCompra())
+            .then(() => hacerLaCompra())
+            .then(() => hacerLaCompra())
+            .then(() => hacerLaCompra())
+            .then(() => hacerLaCompra())
+            .catch(error => {console.log(error)})
+            .finally(() => console.log("ya he terminado de comprar"))
+        ;
+    </script>
+</body>
+</html>

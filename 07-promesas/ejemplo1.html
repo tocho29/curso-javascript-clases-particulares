@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo 1</title>
+</head>
+<body>
+    <h1>Abre la consola y pulsa F5 para ver el resultado</h1>
+    <p>
+        Este ejemplo simula el asincronismo pero generando un código de callback hell
+    </p>
+
+    <script>
+        let compras = "🛒";
+
+        // aquí la función recibe un parámetro llamado "calback" ese parámetro es una función
+        // que es la que vamos a estar ejecutando en nuestro proceso de asincronismo
+        const hacerLaCompra = (callback) => {
+            
+            // para simular el asíncronismo se utiliza la función "setTimeout"
+            // lo que hace es pausar la ejecución del programa durante la cantidad de tiempo
+            // (milisegundos) que le indicas
+            setTimeout(() => {
+                compras += "📦";
+                console.log(compras)
+                
+                // ahora ejecutamos el callback
+                callback();
+            }, 2000);
+        }
+        
+        // vamos a ir añadiendo mas productos al carrito
+        // SPOILER: vamos a generar un callback hell
+        hacerLaCompra(() => {
+            hacerLaCompra(() => {
+                hacerLaCompra(() => {
+                    hacerLaCompra(() => {
+                        hacerLaCompra(() => {
+                        })
+                    })
+                })
+            })
+        })
+    </script>
+</body>
+</html>

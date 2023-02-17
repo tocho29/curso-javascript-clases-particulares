@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de como usar localStorage con fetch</title>
+    
+    <style>
+        table {
+            width: 100%;
+            border: 2px solid red;
+            text-align: center;
+        }
+
+        tr th {
+            border: 2px solid green;
+        }
+
+        tr td {
+            border: 2px solid blue;
+        }
+    </style>
+</head>
+<body>
+    <table id="data-table"></table>
+
+    <script>
+        // con esta función obtengo la información que necesito y la almaceno en localStorage
+        const getData = () => {
+            const url = 'https://jsonplaceholder.typicode.com/comments?postId=1'
+            const requestOptions = {
+                method: 'GET'
+            };
+
+            // cuando realice la llamada fetch almaceno la información en localStorage
+            fetch(url, requestOptions)
+                .then(response => response.json())
+                .then(result => localStorage.setItem("data", JSON.stringify(result)))
+                .catch(error => console.log('error', error))
+            ;
+        }
+
+        // con esta otra función obtengo pinto el HTML desde localStorage para hacer la tabla dinámica
+        const insertInfoTable = async () => {
+            // almaceno la información en localStorage
+            await getData()
+
+            // obtengo la información de localStorage
+            const data = JSON.parse(localStorage.getItem("data"))
+
+            // obtengo la tabla
+            const table = document.querySelector('#data-table')
+            
+            // creo las cabeceras de los campos de la tabla
+            table.innerHTML = `
+                <tr>
+                    <th>postId</th>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Body</th>
+                </tr>
+            `;
+
+            // como es un array de objetos lo recorro con map
+            // por cada objeto monto la estructura de la tabla que necesito es decir los <tr> y los <td>
+            // añadiendo con JavaScript elementos al DOM
+            return data.map((info) => {
+                table.innerHTML += `
+                <tr>
+                    <td>${info.postId}</td>
+                    <td>${info.id}</td>
+                    <td>${info.name}</td>
+                    <td>${info.email}</td>
+                    <td>${info.body}</td>
+                </tr>`;
+            });
+        }
+
+        // llamo a la función que va a ejecutar todo el script
+        insertInfoTable()
+    </script>
+</body>
+</html>
